@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "700184168074",
+    "firebase_url": "https://izifood-748ea.firebaseio.com",
+    "project_id": "izifood-748ea",
+    "storage_bucket": "izifood-748ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700184168074:android:e4f351159a4b1e4f2b8f73",
+        "android_client_info": {
+          "package_name": "com.example.izifood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700184168074-p45qt93220oj6ilvsiapd2rjlmlmecia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPx9p5zjxDn4yvvVLsRYLl61rBLmm3Fj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700184168074-p45qt93220oj6ilvsiapd2rjlmlmecia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
