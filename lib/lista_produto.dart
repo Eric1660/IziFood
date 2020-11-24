@@ -69,7 +69,9 @@ class _ListaProdutoState extends State<ListaProduto> {
                               return ListTile(
                                 title: Text(items[index].nome,
                                     style: TextStyle(fontSize: 24)),
-                                subtitle: Text(items[index].preco,
+                                subtitle: Text(items[index].desc,
+                                    style: TextStyle(fontSize: 20)),
+                                trailing: Text(items[index].preco,
                                     style: TextStyle(fontSize: 20)),
                                 leading: Column(
                                   children: [
@@ -92,7 +94,7 @@ class _ListaProdutoState extends State<ListaProduto> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         backgroundColor: Colors.greenAccent[600],
-        onPressed: () => cadastrarProduto(context, Produto(null, "", "")),
+        onPressed: () => cadastrarProduto(context, Produto(null, "", "", "")),
       ),
       drawer: Drawer(
           child: ListView(
@@ -135,7 +137,7 @@ class _ListaProdutoState extends State<ListaProduto> {
     await Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => NovoProduto(Produto(null, "", ""))),
+          builder: (context) => NovoProduto(Produto(null, "", "", ""))),
     );
   }
 }

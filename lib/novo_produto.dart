@@ -14,12 +14,14 @@ class NovoProduto extends StatefulWidget {
 class _NovoProdutoState extends State<NovoProduto> {
   final db = FirebaseFirestore.instance;
   TextEditingController nomecontroller;
+  TextEditingController descontroller;
   TextEditingController precocontroller;
 
   @override
   void initState() {
     super.initState();
     nomecontroller = new TextEditingController(text: widget.produto.nome);
+    descontroller = new TextEditingController(text: widget.produto.desc);
     precocontroller = new TextEditingController(text: widget.produto.preco);
   }
 
@@ -37,6 +39,10 @@ class _NovoProdutoState extends State<NovoProduto> {
             TextField(
               controller: nomecontroller,
               decoration: InputDecoration(labelText: "Nome do Produto"),
+            ),
+            TextField(
+              controller: descontroller,
+              decoration: InputDecoration(labelText: "Descrição"),
             ),
             TextField(
               controller: precocontroller,
@@ -57,11 +63,13 @@ class _NovoProdutoState extends State<NovoProduto> {
                   if (widget.produto.id != null) {
                     db.collection("cardapio").doc(widget.produto.id).set({
                       "Produto": nomecontroller.text,
+                      "Descrição": descontroller.text,
                       "Preço": precocontroller.text
                     });
                   } else {
                     db.collection("cardapio").doc(widget.produto.id).set({
                       "Produto": nomecontroller.text,
+                      "Descrição": descontroller.text,
                       "Preço": precocontroller.text
                     });
                   }
