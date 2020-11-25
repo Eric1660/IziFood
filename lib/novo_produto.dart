@@ -21,7 +21,7 @@ class _NovoProdutoState extends State<NovoProduto> {
   void initState() {
     super.initState();
     nomecontroller = new TextEditingController(text: widget.produto.nome);
-    descontroller = new TextEditingController(text: widget.produto.desc);
+    descontroller = new TextEditingController(text: widget.produto.descricao);
     precocontroller = new TextEditingController(text: widget.produto.preco);
   }
 

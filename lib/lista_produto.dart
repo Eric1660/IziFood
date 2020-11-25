@@ -65,11 +65,11 @@ class _ListaProdutoState extends State<ListaProduto> {
                         List<DocumentSnapshot> documentos = snapshot.data.docs;
                         return ListView.builder(
                             itemCount: documentos.length,
-                            itemBuilder: (_, index) {
+                            itemBuilder: (context, index) {
                               return ListTile(
                                 title: Text(items[index].nome,
                                     style: TextStyle(fontSize: 24)),
-                                subtitle: Text(items[index].desc,
+                                subtitle: Text(items[index].descricao,
                                     style: TextStyle(fontSize: 20)),
                                 trailing: Text(items[index].preco,
                                     style: TextStyle(fontSize: 20)),
