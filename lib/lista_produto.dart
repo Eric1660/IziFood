@@ -52,7 +52,7 @@ class _ListaProdutoState extends State<ListaProduto> {
         children: [
           Expanded(
               child: StreamBuilder<QuerySnapshot>(
-                  stream: getListaLivros(),
+                  stream: getListaProduto(),
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.none:
@@ -84,7 +84,7 @@ class _ListaProdutoState extends State<ListaProduto> {
                                   ],
                                 ),
                                 onTap: () =>
-                                    navegarLivros(context, items[index]),
+                                    navegarProdutos(context, items[index]),
                               );
                             });
                     }
@@ -93,7 +93,7 @@ class _ListaProdutoState extends State<ListaProduto> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        backgroundColor: Colors.greenAccent[600],
+        backgroundColor: Colors.red,
         onPressed: () => cadastrarProduto(context, Produto(null, "", "", "")),
       ),
       drawer: Drawer(
@@ -112,7 +112,7 @@ class _ListaProdutoState extends State<ListaProduto> {
     );
   }
 
-  Stream<QuerySnapshot> getListaLivros() {
+  Stream<QuerySnapshot> getListaProduto() {
     return FirebaseFirestore.instance.collection("cardapio").snapshots();
   }
 
@@ -126,7 +126,7 @@ class _ListaProdutoState extends State<ListaProduto> {
     });
   }
 
-  void navegarLivros(BuildContext context, Produto produto) async {
+  void navegarProdutos(BuildContext context, Produto produto) async {
     await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => NovoProduto(produto)),

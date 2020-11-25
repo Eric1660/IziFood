@@ -29,7 +29,7 @@ class _NovoProdutoState extends State<NovoProduto> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('IziFood'),
+        title: new Text('Novo Produto/Alterar'),
         backgroundColor: Colors.red,
       ),
       body: Container(
@@ -49,15 +49,12 @@ class _NovoProdutoState extends State<NovoProduto> {
               decoration: InputDecoration(labelText: "Preço"),
             ),
             RaisedButton(
-                color: Colors.greenAccent[400],
+                color: Colors.red,
                 child: (widget.produto.id != null)
                     ? Text("Alterar")
                     : Text(
                         "Novo",
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400),
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                 onPressed: () {
                   if (widget.produto.id != null) {
