@@ -15,16 +15,15 @@ class _ListaProdutoState extends State<ListaProduto> {
   List<Produto> items;
 
   var db = FirebaseFirestore.instance;
-  StreamSubscription<QuerySnapshot> produtossinscritos;
+  StreamSubscription<QuerySnapshot> produtoinscrito;
 
   @override
   void initState() {
     //iniciaservico();
     super.initState();
     items = List();
-    produtossinscritos?.cancel();
-    produtossinscritos =
-        db.collection("cardapio").snapshots().listen((snapshot) {
+    produtoinscrito?.cancel();
+    produtoinscrito = db.collection("cardapio").snapshots().listen((snapshot) {
       final List<Produto> produto = snapshot.docs
           .map((documentSnapshot) =>
               Produto.fromMap(documentSnapshot.data(), documentSnapshot.id))
@@ -37,7 +36,7 @@ class _ListaProdutoState extends State<ListaProduto> {
 
   @override
   void dispose() {
-    produtossinscritos?.cancel();
+    produtoinscrito?.cancel();
     super.dispose();
   }
 
@@ -64,8 +63,8 @@ class _ListaProdutoState extends State<ListaProduto> {
                       default:
                         List<DocumentSnapshot> documentos = snapshot.data.docs;
                         return ListView.builder(
-                            itemCount: documentos.length,
-                            itemBuilder: (context, index) {
+                            itemCount: items.length,
+                            itemBuilder: (_, index) {
                               return ListTile(
                                 title: Text(items[index].nome,
                                     style: TextStyle(fontSize: 24)),

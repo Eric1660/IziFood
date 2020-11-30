@@ -14,14 +14,15 @@ class NovoProduto extends StatefulWidget {
 class _NovoProdutoState extends State<NovoProduto> {
   final db = FirebaseFirestore.instance;
   TextEditingController nomecontroller;
-  TextEditingController descontroller;
+  TextEditingController descricaocontroller;
   TextEditingController precocontroller;
 
   @override
   void initState() {
     super.initState();
     nomecontroller = new TextEditingController(text: widget.produto.nome);
-    descontroller = new TextEditingController(text: widget.produto.descricao);
+    descricaocontroller =
+        new TextEditingController(text: widget.produto.descricao);
     precocontroller = new TextEditingController(text: widget.produto.preco);
   }
 
@@ -41,11 +42,12 @@ class _NovoProdutoState extends State<NovoProduto> {
               decoration: InputDecoration(labelText: "Nome do Produto"),
             ),
             TextField(
-              controller: descontroller,
+              controller: descricaocontroller,
               decoration: InputDecoration(labelText: "Descrição"),
             ),
             TextField(
               controller: precocontroller,
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(labelText: "Preço"),
             ),
             RaisedButton(
@@ -59,15 +61,15 @@ class _NovoProdutoState extends State<NovoProduto> {
                 onPressed: () {
                   if (widget.produto.id != null) {
                     db.collection("cardapio").doc(widget.produto.id).set({
-                      "Produto": nomecontroller.text,
-                      "Descrição": descontroller.text,
-                      "Preço": precocontroller.text
+                      "nome": nomecontroller.text,
+                      "descrição": descricaocontroller.text,
+                      "preço": precocontroller.text
                     });
                   } else {
                     db.collection("cardapio").doc(widget.produto.id).set({
-                      "Produto": nomecontroller.text,
-                      "Descrição": descontroller.text,
-                      "Preço": precocontroller.text
+                      "nome": nomecontroller.text,
+                      "descrição": descricaocontroller.text,
+                      "preço": precocontroller.text
                     });
                   }
                   Navigator.pop(context);

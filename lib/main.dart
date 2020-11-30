@@ -50,10 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   color: Colors.white,
                   padding: const EdgeInsets.only(
-                    left: 40,
-                    top: 20,
-                    right: 40,
-                    bottom: 20,
+                    left: 30,
+                    top: 15,
+                    right: 30,
+                    bottom: 15,
                   ),
                   child: new Text(
                     "Entrar",
