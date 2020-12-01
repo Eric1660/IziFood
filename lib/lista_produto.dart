@@ -63,6 +63,7 @@ class _ListaProdutoState extends State<ListaProduto> {
                       default:
                         List<DocumentSnapshot> documentos = snapshot.data.docs;
                         return ListView.builder(
+                            padding: const EdgeInsets.symmetric(vertical: 15.0),
                             itemCount: items.length,
                             itemBuilder: (_, index) {
                               return ListTile(
@@ -70,7 +71,7 @@ class _ListaProdutoState extends State<ListaProduto> {
                                     style: TextStyle(fontSize: 24)),
                                 subtitle: Text(items[index].descricao,
                                     style: TextStyle(fontSize: 20)),
-                                trailing: Text(items[index].preco,
+                                trailing: Text("R\$ " + items[index].preco,
                                     style: TextStyle(fontSize: 20)),
                                 leading: Column(
                                   children: [

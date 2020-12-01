@@ -53,7 +53,8 @@ class _NovoProdutoState extends State<NovoProduto> {
             RaisedButton(
                 color: Colors.red,
                 child: (widget.produto.id != null)
-                    ? Text("Alterar")
+                    ? Text("Alterar",
+                        style: TextStyle(fontSize: 20, color: Colors.white))
                     : Text(
                         "Novo",
                         style: TextStyle(fontSize: 20, color: Colors.white),
@@ -62,18 +63,27 @@ class _NovoProdutoState extends State<NovoProduto> {
                   if (widget.produto.id != null) {
                     db.collection("cardapio").doc(widget.produto.id).set({
                       "nome": nomecontroller.text,
-                      "descrição": descricaocontroller.text,
-                      "preço": precocontroller.text
+                      "descricao": descricaocontroller.text,
+                      "preco": precocontroller.text
                     });
                   } else {
-                    db.collection("cardapio").doc(widget.produto.id).set({
+                    db.collection("cardapio").doc().set({
                       "nome": nomecontroller.text,
-                      "descrição": descricaocontroller.text,
-                      "preço": precocontroller.text
+                      "descricao": descricaocontroller.text,
+                      "preco": precocontroller.text
                     });
                   }
                   Navigator.pop(context);
                   SystemChannels.textInput.invokeMethod('TextInput.hide');
+                }),
+            RaisedButton(
+                color: Colors.red,
+                child: Text(
+                  "Cancelar",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
                 })
           ])),
       drawer: Drawer(
