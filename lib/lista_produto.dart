@@ -68,9 +68,9 @@ class _ListaProdutoState extends State<ListaProduto> {
                             itemBuilder: (_, index) {
                               return ListTile(
                                 title: Text(items[index].nome,
-                                    style: TextStyle(fontSize: 24)),
-                                subtitle: Text(items[index].descricao,
                                     style: TextStyle(fontSize: 20)),
+                                subtitle: Text(items[index].descricao,
+                                    style: TextStyle(fontSize: 12)),
                                 trailing: Text("R\$ " + items[index].preco,
                                     style: TextStyle(fontSize: 20)),
                                 leading: Column(
